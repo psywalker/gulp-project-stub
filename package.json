@@ -5,8 +5,12 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "autoprefixer": "^6.7.6",
     "eslint": "^3.17.1",
-    "eslint-config-htmlacademy": "^0.2.3"
+    "eslint-config-htmlacademy": "^0.2.3",
+    "gulp-postcss": "^6.3.0",
+    "gulp-rename": "^1.2.2",
+    "postcss-import": "^9.1.0"
   },
   "browserslist": [
     "> 1%",
