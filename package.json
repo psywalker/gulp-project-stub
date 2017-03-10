@@ -1,0 +1,31 @@
+{
+  "name": "gulpkantor",
+  "version": "1.0.0",
+  "description": "Изучение Gulp.js по Кантору",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "./node_modules/.bin/gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/firefoxic/gulpkantor.git"
+  },
+  "keywords": [
+    "gulp",
+    "learn",
+    "kantor"
+  ],
+  "author": "firefoxic",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/firefoxic/gulpkantor/issues"
+  },
+  "homepage": "https://github.com/firefoxic/gulpkantor#readme"
+}
