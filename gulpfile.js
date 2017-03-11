@@ -41,6 +41,7 @@ gulp.task('pages', function() {
 gulp.task('build', gulp.series('clean', gulp.parallel('assets', 'pages', 'styles')));
 
 gulp.task('watch', function() {
+  gulp.watch('source/*.html', gulp.series('pages'));
   gulp.watch('source/css/**/*.*', gulp.series('styles'));
   gulp.watch('source/assets/**/*.*', gulp.series('assets'));
 });
