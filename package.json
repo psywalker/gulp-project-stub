@@ -8,6 +8,7 @@
     "autoprefixer": "^6.7.6",
     "eslint": "^3.17.1",
     "eslint-config-htmlacademy": "^0.2.3",
+    "gulp-if": "^2.0.2",
     "gulp-postcss": "^6.3.0",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^2.4.1",
