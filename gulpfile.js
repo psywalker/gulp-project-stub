@@ -7,6 +7,7 @@ const autoprefixer = require('autoprefixer');
 const atImport = require("postcss-import");
 const sourcemaps = require('gulp-sourcemaps');
 const gulpIf = require('gulp-if');
+const del = require('del');
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
@@ -22,3 +23,9 @@ gulp.task('styles', function() {
     .pipe(gulpIf(isDevelopment, sourcemaps.write()))
     .pipe(gulp.dest('build'));
 });
+
+gulp.task('clean', function() {
+  return del('build');
+});
+
+gulp.task('build', gulp.series('clean', 'styles'));
