@@ -39,3 +39,5 @@ gulp.task('pages', function() {
 });
 
 gulp.task('build', gulp.series('clean', gulp.parallel('assets', 'pages', 'styles')));
+
+gulp.watch('source/css/**/*.*', gulp.series('styles'));
