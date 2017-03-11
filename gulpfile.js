@@ -29,7 +29,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('assets', function() {
-  return gulp.src('source/assets/**')
+  return gulp.src('source/assets/**', {since: gulp.lastRun('assets')})
     .pipe(gulp.dest('build/assets'));
 });
 
