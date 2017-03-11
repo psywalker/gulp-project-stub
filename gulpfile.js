@@ -28,4 +28,14 @@ gulp.task('clean', function() {
   return del('build');
 });
 
-gulp.task('build', gulp.series('clean', 'styles'));
+gulp.task('assets', function() {
+  return gulp.src('source/assets/**')
+    .pipe(gulp.dest('build/assets'));
+});
+
+gulp.task('pages', function() {
+  return gulp.src('source/*.html')
+    .pipe(gulp.dest('build'));
+});
+
+gulp.task('build', gulp.series('clean', gulp.parallel('assets', 'pages', 'styles')));
