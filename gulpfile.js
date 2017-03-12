@@ -8,6 +8,7 @@ const atImport = require("postcss-import");
 const sourcemaps = require('gulp-sourcemaps');
 const gulpIf = require('gulp-if');
 const del = require('del');
+const newer = require('gulp-newer');
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
@@ -30,6 +31,7 @@ gulp.task('clean', function() {
 
 gulp.task('assets', function() {
   return gulp.src('source/assets/**', {since: gulp.lastRun('assets')})
+    .pipe(newer('build'))
     .pipe(gulp.dest('build/assets'));
 });
 
