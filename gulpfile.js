@@ -10,6 +10,7 @@ const gulpIf = require('gulp-if');
 const del = require('del');
 const newer = require('gulp-newer');
 const concat = require('gulp-concat');
+const cached = require('gulp-cached');
 const remember = require('gulp-remember');
 const path = require('path');
 
@@ -29,7 +30,8 @@ gulp.task('styles', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src('source/js/**', {since: gulp.lastRun('scripts')})
+  return gulp.src('source/js/**')
+    .pipe(cached('js'))
     .pipe(gulpIf(isDevelopment, sourcemaps.init()))
     .pipe(remember('js'))
     .pipe(concat('main.js'))
@@ -56,6 +58,7 @@ gulp.task('build', gulp.series('clean', gulp.parallel('assets', 'pages', 'styles
 
 function forgetCach(filepath) {
   remember.forget('js', path.resolve(filepath));
+  delete cached.caches.js[path.resolve(filepath)];
 }
 
 gulp.task('watch', function() {
