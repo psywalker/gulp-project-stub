@@ -13,6 +13,7 @@ const concat = require('gulp-concat');
 const cached = require('gulp-cached');
 const remember = require('gulp-remember');
 const path = require('path');
+const browserSync = require('browser-sync').create();
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
@@ -68,4 +69,11 @@ gulp.task('watch', function() {
   gulp.watch('source/assets/**/*.*', gulp.series('assets'));
 });
 
-gulp.task('dev', gulp.series('build', 'watch'));
+gulp.task('serve', function () {
+  browserSync.init({
+    server: 'build'
+  });
+  browserSync.watch('build/**/*.*').on('change', browserSync.reload);
+});
+
+gulp.task('dev', gulp.series('build', gulp.parallel('watch', 'serve')));
