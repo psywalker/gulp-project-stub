@@ -2,7 +2,7 @@
 
 window.lalala = (function () {
   return {
-    lalala: function () {
+    lalala() {
       return 'lalala';
     }
   };

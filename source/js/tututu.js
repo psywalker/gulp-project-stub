@@ -2,7 +2,7 @@
 
 window.tututu = (function () {
   return {
-    tututu: function () {
+    tututu() {
       return 'tututu';
     }
   };

@@ -1,24 +1,24 @@
 'use strict';
 
-const gulp = require('gulp');
-const postcss = require('gulp-postcss');
-const rename = require('gulp-rename');
-const autoprefixer = require('autoprefixer');
-const atImport = require("postcss-import");
-const sourcemaps = require('gulp-sourcemaps');
-const gulpIf = require('gulp-if');
+const browserSync = require('browser-sync').create();
 const del = require('del');
+const path = require('path');
+const gulp = require('gulp');
+const sourcemaps = require('gulp-sourcemaps');
+const remember = require('gulp-remember');
+const rename = require('gulp-rename');
+const gulpIf = require('gulp-if');
 const newer = require('gulp-newer');
 const concat = require('gulp-concat');
 const cached = require('gulp-cached');
-const remember = require('gulp-remember');
-const path = require('path');
-const browserSync = require('browser-sync').create();
+const postcss = require('gulp-postcss');
+const atImport = require('postcss-import');
+const autoprefixer = require('autoprefixer');
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
-gulp.task('styles', function() {
-  var plugins = [
+gulp.task('styles', function () {
+  let plugins = [
     atImport(),
     autoprefixer()
   ];
@@ -30,7 +30,7 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('build'));
 });
 
-gulp.task('scripts', function() {
+gulp.task('scripts', function () {
   return gulp.src('source/js/**')
     .pipe(cached('js'))
     .pipe(gulpIf(isDevelopment, sourcemaps.init()))
@@ -40,17 +40,17 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('build/js'));
 });
 
-gulp.task('clean', function() {
+gulp.task('clean', function () {
   return del('build');
 });
 
-gulp.task('assets', function() {
+gulp.task('assets', function () {
   return gulp.src('source/assets/**', {since: gulp.lastRun('assets')})
     .pipe(newer('build'))
     .pipe(gulp.dest('build/assets'));
 });
 
-gulp.task('pages', function() {
+gulp.task('pages', function () {
   return gulp.src('source/*.html')
     .pipe(gulp.dest('build'));
 });
@@ -62,7 +62,7 @@ function forgetCach(filepath) {
   delete cached.caches.js[path.resolve(filepath)];
 }
 
-gulp.task('watch', function() {
+gulp.task('watch', function () {
   gulp.watch('source/*.html', gulp.series('pages'));
   gulp.watch('source/js/**/*.*', gulp.series('scripts')).on('unlink', forgetCach);
   gulp.watch('source/css/**/*.*', gulp.series('styles'));
