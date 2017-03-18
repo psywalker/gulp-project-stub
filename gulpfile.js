@@ -13,18 +13,28 @@ const concat = require('gulp-concat');
 const cached = require('gulp-cached');
 const postcss = require('gulp-postcss');
 const atImport = require('postcss-import');
+const reporter = require('postcss-browser-reporter');
 const autoprefixer = require('autoprefixer');
+const stylelint = require('stylelint');
+const csso = require('postcss-csso');
+const url = require('postcss-url');
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
 gulp.task('styles', function () {
-  let plugins = [
-    atImport(),
-    autoprefixer()
-  ];
   return gulp.src('source/css/style.post.css')
     .pipe(gulpIf(isDevelopment, sourcemaps.init()))
-    .pipe(postcss(plugins))
+    .pipe(postcss([
+      atImport({
+        plugins: [
+          url(),
+          stylelint(),
+          autoprefixer(),
+          reporter()
+        ]
+      }),
+      csso(),
+    ]))
     .pipe(rename('style.css'))
     .pipe(gulpIf(isDevelopment, sourcemaps.write()))
     .pipe(gulp.dest('build'));
