@@ -1,6 +1,6 @@
 .header {
-  background: url("assets/img/cat.svg") left center no-repeat;
+  box-sizing: var(--box-sizing);
+  background: url("../../assets/img/cat.svg") left center no-repeat;
   background-size: contain;
   padding-left: 50px;
-  font-size: 40px;
 }
