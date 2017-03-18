@@ -6,7 +6,6 @@ const path = require('path');
 const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
 const remember = require('gulp-remember');
-const rename = require('gulp-rename');
 const gulpIf = require('gulp-if');
 const newer = require('gulp-newer');
 const concat = require('gulp-concat');
@@ -22,7 +21,7 @@ const url = require('postcss-url');
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
 gulp.task('styles', function () {
-  return gulp.src('source/css/style.post.css')
+  return gulp.src('source/css/style.css')
     .pipe(gulpIf(isDevelopment, sourcemaps.init()))
     .pipe(postcss([
       atImport({
@@ -35,9 +34,8 @@ gulp.task('styles', function () {
       }),
       csso(),
     ]))
-    .pipe(rename('style.css'))
     .pipe(gulpIf(isDevelopment, sourcemaps.write()))
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('build/css'));
 });
 
 gulp.task('scripts', function () {
