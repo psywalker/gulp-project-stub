@@ -1,11 +1,10 @@
 'use strict';
 
 const gulp = require('gulp');
-// const notify = require('gulp-notify');
-// const plumber = require('gulp-plumber');
 const postcss = require('gulp-postcss');
 const atImport = require('postcss-import');
-const reporter = require('postcss-browser-reporter');
+const browserReporter = require('postcss-browser-reporter');
+const reporter = require('postcss-reporter');
 const autoprefixer = require('autoprefixer');
 const stylelint = require('stylelint');
 const csso = require('postcss-csso');
@@ -25,7 +24,8 @@ module.exports = function () {
         url(),
         autoprefixer(),
         csso(),
-        reporter()
+        browserReporter(),
+        reporter({clearReportedMessages: true})
       ], {map: isDevelopment}))
       .pipe(gulp.dest('build/css'));
   };
