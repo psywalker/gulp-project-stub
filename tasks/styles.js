@@ -24,11 +24,14 @@ module.exports = function () {
         }),
         url(),
         autoprefixer(),
-        mqpacker(),
+        mqpacker({
+          sort: true
+        }),
         csso(),
         browserReporter(),
         reporter({clearReportedMessages: true})
-      ], {map: isDevelopment}))
+      ], {map: isDevelopment}
+      ))
       .pipe(gulp.dest('build/css'));
   };
 };
