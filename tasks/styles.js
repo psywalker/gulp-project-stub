@@ -7,6 +7,7 @@ const browserReporter = require('postcss-browser-reporter');
 const reporter = require('postcss-reporter');
 const autoprefixer = require('autoprefixer');
 const stylelint = require('stylelint');
+const mqpacker = require('css-mqpacker');
 const csso = require('postcss-csso');
 const url = require('postcss-url');
 
@@ -23,6 +24,7 @@ module.exports = function () {
         }),
         url(),
         autoprefixer(),
+        mqpacker(),
         csso(),
         browserReporter(),
         reporter({clearReportedMessages: true})
