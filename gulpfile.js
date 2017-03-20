@@ -15,3 +15,4 @@ runTaskLazy('build');
 runTaskLazy('watch');
 runTaskLazy('serve');
 runTaskLazy('dev');
+runTaskLazy('deploy');
