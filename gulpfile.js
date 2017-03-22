@@ -15,4 +15,5 @@ runTaskLazy('build');
 runTaskLazy('watch');
 runTaskLazy('serve');
 runTaskLazy('dev');
+runTaskLazy('github');
 runTaskLazy('deploy');
