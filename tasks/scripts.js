@@ -4,6 +4,7 @@ const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
 const remember = require('gulp-remember');
 const gulpIf = require('gulp-if');
+const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const cached = require('gulp-cached');
 
@@ -14,6 +15,7 @@ module.exports = function () {
     return gulp.src('source/js/**')
       .pipe(cached('js'))
       .pipe(gulpIf(isDevelopment, sourcemaps.init()))
+      .pipe(babel())
       .pipe(remember('js'))
       .pipe(concat('main.js'))
       .pipe(gulpIf(isDevelopment, sourcemaps.write()))
