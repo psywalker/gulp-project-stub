@@ -6,6 +6,7 @@ function runTaskLazy(taskName) {
   gulp.task(taskName, (callback) => require('./tasks/' + taskName)()(callback));
 }
 
+runTaskLazy('fonts');
 runTaskLazy('pages');
 runTaskLazy('styles');
 runTaskLazy('scripts');
