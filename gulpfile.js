@@ -9,6 +9,7 @@ function runTaskLazy(taskName) {
 runTaskLazy('fonts');
 runTaskLazy('icons');
 runTaskLazy('images');
+runTaskLazy('preparation');
 runTaskLazy('pages');
 runTaskLazy('styles');
 runTaskLazy('scripts');
