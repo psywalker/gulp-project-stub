@@ -8,6 +8,7 @@ function runTaskLazy(taskName) {
 
 runTaskLazy('fonts');
 runTaskLazy('icons');
+runTaskLazy('images');
 runTaskLazy('pages');
 runTaskLazy('styles');
 runTaskLazy('scripts');
