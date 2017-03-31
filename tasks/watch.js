@@ -15,6 +15,6 @@ module.exports = function () {
     gulp.watch('source/*.html', gulp.series('pages'));
     gulp.watch('source/js/**/*.*', gulp.series('scripts')).on('unlink', forgetCach);
     gulp.watch('source/css/**/*.*', gulp.series('styles'));
-    gulp.watch('source/assets/**/*.*', gulp.series('assets'));
+    gulp.watch('source/assets/**/*.*', gulp.series('copy'));
   };
 };
