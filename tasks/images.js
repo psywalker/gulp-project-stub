@@ -7,9 +7,13 @@ const image = require('gulp-image');
 
 module.exports = function () {
   return function () {
-    return gulp.src('source/raw/img/**/*.{png,jpg,gif,svg}')
+    return gulp.src('source/raw/img/**/*.*')
       .pipe(cached('images'))
-      .pipe(image())
+      .pipe(image({
+        mozjpeg: false,
+        jpegoptim: false,
+        jpegRecompress: true
+      }))
       .pipe(remember('images'))
       .pipe(gulp.dest('source/assets/img'));
   };
