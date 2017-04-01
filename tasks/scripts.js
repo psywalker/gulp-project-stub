@@ -12,13 +12,13 @@ const cached = require('gulp-cached');
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = () => () => (
-  gulp.src('source/js/**')
-    .pipe(cached('js'))
+  gulp.src('source/scripts/**')
+    .pipe(cached('scripts'))
     .pipe(gulpIf(isDevelopment, sourcemaps.init()))
     .pipe(babel())
-    .pipe(remember('js'))
+    .pipe(remember('scripts'))
     .pipe(concat('main.js'))
     .pipe(uglify())
     .pipe(gulpIf(isDevelopment, sourcemaps.write()))
-    .pipe(gulp.dest('build/js'))
+    .pipe(gulp.dest('build/scripts'))
 );

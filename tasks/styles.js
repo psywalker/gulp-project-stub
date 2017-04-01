@@ -4,7 +4,7 @@ const gulp = require('gulp');
 const postcss = require('gulp-postcss');
 
 module.exports = () => () => (
-  gulp.src('source/css/style.css')
+  gulp.src('source/styles/style.css')
     .pipe(postcss())
-    .pipe(gulp.dest('build/css'))
+    .pipe(gulp.dest('build/styles'))
 );
