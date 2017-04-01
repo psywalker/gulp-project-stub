@@ -2,6 +2,12 @@
 
 const gulp = require('gulp');
 
-module.exports = function () {
-  return gulp.series('build', gulp.parallel('watch', 'serve'));
-};
+module.exports = () => (
+  gulp.series(
+      'build',
+      gulp.parallel(
+          'watch',
+          'serve'
+      )
+  )
+);

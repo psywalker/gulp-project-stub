@@ -11,16 +11,14 @@ const cached = require('gulp-cached');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
-module.exports = function () {
-  return function () {
-    return gulp.src('source/js/**')
-      .pipe(cached('js'))
-      .pipe(gulpIf(isDevelopment, sourcemaps.init()))
-      .pipe(babel())
-      .pipe(remember('js'))
-      .pipe(concat('main.js'))
-      .pipe(uglify())
-      .pipe(gulpIf(isDevelopment, sourcemaps.write()))
-      .pipe(gulp.dest('build/js'));
-  };
-};
+module.exports = () => () => (
+  gulp.src('source/js/**')
+    .pipe(cached('js'))
+    .pipe(gulpIf(isDevelopment, sourcemaps.init()))
+    .pipe(babel())
+    .pipe(remember('js'))
+    .pipe(concat('main.js'))
+    .pipe(uglify())
+    .pipe(gulpIf(isDevelopment, sourcemaps.write()))
+    .pipe(gulp.dest('build/js'))
+);

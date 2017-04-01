@@ -2,6 +2,10 @@
 
 const gulp = require('gulp');
 
-module.exports = function () {
-  return gulp.parallel('fonts', 'icons', 'images');
-};
+module.exports = () => (
+  gulp.parallel(
+      'fonts',
+      'icons',
+      'images'
+    )
+);

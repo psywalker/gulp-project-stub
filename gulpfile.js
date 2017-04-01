@@ -2,9 +2,9 @@
 
 const gulp = require('gulp');
 
-function runTaskLazy(taskName) {
+const runTaskLazy = (taskName) => {
   gulp.task(taskName, (callback) => require('./tasks/' + taskName)()(callback));
-}
+};
 
 runTaskLazy('fonts');
 runTaskLazy('icons');
