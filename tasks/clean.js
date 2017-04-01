@@ -4,6 +4,8 @@ const del = require('del');
 
 module.exports = function () {
   return function () {
-    return del(['build', '.publish']);
+    return del([
+      'build'
+    ]);
   };
 };
