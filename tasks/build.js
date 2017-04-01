@@ -3,5 +3,5 @@
 const gulp = require('gulp');
 
 module.exports = function () {
-  return gulp.series('clean', gulp.parallel('copy', 'pages', 'styles', 'scripts'));
+  return gulp.series('clean', 'assets', gulp.parallel('copy', 'pages', 'styles', 'scripts'));
 };
