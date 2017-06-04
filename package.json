@@ -1,9 +1,7 @@
 {
-  "name": "gulpkantor",
+  "name": "gulp-project-stub",
   "version": "1.0.0",
-  "description": "Изучение Gulp.js по Кантору",
-  "main": "index.js",
-  "dependencies": {},
+  "description": "Шаблон проекта со сборкой на Gulp-4.0",
   "devDependencies": {
     "autoprefixer": "^6.7.6",
     "babel-preset-es2015": "^6.24.0",
@@ -44,7 +42,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/firefoxic/gulpkantor.git"
+    "url": "git+https://github.com/firefoxic/gulp-project-stub.git"
   },
   "keywords": [
     "gulp",
@@ -54,7 +52,7 @@
   "author": "firefoxic",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/firefoxic/gulpkantor/issues"
+    "url": "https://github.com/firefoxic/gulp-project-stub/issues"
   },
-  "homepage": "https://github.com/firefoxic/gulpkantor#readme"
+  "homepage": "https://github.com/firefoxic/gulp-project-stub#readme"
 }
