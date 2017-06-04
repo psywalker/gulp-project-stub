@@ -8,8 +8,8 @@ const runTaskLazy = (taskName) => {
 
 runTaskLazy('build');
 runTaskLazy('clean');
+runTaskLazy('default');
 runTaskLazy('deploy');
-runTaskLazy('dev');
 runTaskLazy('fonts');
 runTaskLazy('github');
 runTaskLazy('icons');
