@@ -1,4 +1,4 @@
-'use strict';
+/* eslint-env node */
 
 const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
@@ -11,7 +11,7 @@ const cached = require('gulp-cached');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
-module.exports = () => () => (
+module.exports = () => (
   gulp.src('source/scripts/**')
     .pipe(cached('scripts'))
     .pipe(gulpIf(isDevelopment, sourcemaps.init()))

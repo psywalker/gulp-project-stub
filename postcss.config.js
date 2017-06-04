@@ -1,15 +1,17 @@
-'use strict';
+const stylelint = require('stylelint');
 
-module.exports = (ctx) => ({
-  map: ctx.env !== 'production',
-  plugins: {
+module.exports = ctx => ({
+  'map': ctx.env !== 'production',
+  'plugins': {
     'postcss-import': {
-      plugins: [
-        require('stylelint')
+      'plugins': [
+        stylelint
       ]
     },
     'postcss-url': {},
     'autoprefixer': {},
+    'postcss-nesting': {},
+    'postcss-custom-media': {},
     'css-mqpacker': {
       'sort': true
     },

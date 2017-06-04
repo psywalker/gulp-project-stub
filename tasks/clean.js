@@ -1,10 +1,9 @@
-'use strict';
+/* eslint-env node */
 
 const del = require('del');
 
-module.exports = () => () => (
+module.exports = () => (
   del([
-    'source/assets',
     'build'
   ])
 );

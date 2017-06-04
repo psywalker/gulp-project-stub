@@ -1,16 +1,15 @@
-'use strict';
+/* eslint-env node */
 
 const gulp = require('gulp');
 
-module.exports = () => (
-  gulp.series(
-      'clean',
-      'assets',
-      gulp.parallel(
-          'copy',
-          'pages',
-          'styles',
-          'scripts'
-      )
+module.exports = gulp.series(
+  'clean',
+  gulp.parallel(
+    'fonts',
+    'icons',
+    'images',
+    'pages',
+    'styles',
+    'scripts'
   )
 );

@@ -1,8 +1,8 @@
-'use strict';
+/* eslint-env node */
 
 const browserSync = require('browser-sync').create();
 
-module.exports = () => () => {
+module.exports = () => {
   browserSync.init({
     server: 'build'
   });

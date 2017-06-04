@@ -1,23 +1,21 @@
-'use strict';
+/* eslint-disable */
 
 const gulp = require('gulp');
 
 const runTaskLazy = (taskName) => {
-  gulp.task(taskName, (callback) => require('./tasks/' + taskName)()(callback));
+  gulp.task(taskName, cb => require(`./tasks/${taskName}`)(cb));
 };
 
+runTaskLazy('build');
+runTaskLazy('clean');
+runTaskLazy('deploy');
+runTaskLazy('dev');
 runTaskLazy('fonts');
+runTaskLazy('github');
 runTaskLazy('icons');
 runTaskLazy('images');
-runTaskLazy('assets');
 runTaskLazy('pages');
-runTaskLazy('styles');
 runTaskLazy('scripts');
-runTaskLazy('copy');
-runTaskLazy('clean');
-runTaskLazy('build');
-runTaskLazy('watch');
 runTaskLazy('serve');
-runTaskLazy('dev');
-runTaskLazy('github');
-runTaskLazy('deploy');
+runTaskLazy('styles');
+runTaskLazy('watch');
