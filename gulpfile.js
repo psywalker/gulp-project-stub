@@ -19,3 +19,4 @@ runTaskLazy('scripts');
 runTaskLazy('serve');
 runTaskLazy('styles');
 runTaskLazy('watch');
+runTaskLazy('zip');

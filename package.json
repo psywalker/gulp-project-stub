@@ -33,6 +33,7 @@
     "gulp-svgmin": "^1.2.4",
     "gulp-svgstore": "^6.1.0",
     "gulp-uglify": "^2.1.2",
+    "gulp-zip": "^4.0.0",
     "path": "^0.12.7",
     "postcss-browser-reporter": "^0.5.0",
     "postcss-csso": "^2.0.0",
@@ -46,7 +47,13 @@
     "stylelint-config-standard": "^16.0.0"
   },
   "scripts": {
-    "test": "eslint ",
+    "start": "gulp --debug",
+    "build": "gulp build",
+    "deploy": "gulp deploy",
+    "zip": "NODE_ENV=production gulp build && gulp zip",
+    "lint:scripts": "./node_modules/.bin/eslint source/scripts/**/*.js",
+    "lint:styles": "./node_modules/.bin/stylelint source/styles/**/*.css",
+    "lint": "npm run lint:styles && npm run lint:scripts",
     "gulp": "./node_modules/.bin/gulp"
   },
   "repository": {
