@@ -2,6 +2,13 @@
   "name": "gulp-project-stub",
   "version": "1.0.0",
   "description": "Шаблон проекта со сборкой на Gulp-4.0",
+  "browserslist": [
+    "last 1 versions",
+    "not ie <= 11"
+  ],
+  "stylelint": {
+    "extends": "stylelint-config-standard"
+  },
   "devDependencies": {
     "autoprefixer": "^6.7.6",
     "babel-preset-es2015": "^6.24.0",
