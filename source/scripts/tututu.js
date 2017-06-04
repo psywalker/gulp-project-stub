@@ -1,9 +1,7 @@
-'use strict';
+/* eslint-env browser */
 
-window.tututu = (function () {
-  return {
-    tututu() {
-      return 'tututu';
-    }
-  };
-})();
+const tututu = {
+  lalala: () => { 'tututu'; }
+};
+
+export { tututu as default };

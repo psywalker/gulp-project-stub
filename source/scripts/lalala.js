@@ -1,9 +1,7 @@
-'use strict';
+/* eslint-env browser */
 
-window.lalala = (function () {
-  return {
-    lalala() {
-      return 'lalala';
-    }
-  };
-})();
+const lalala = {
+  lalala: () => { 'lalala'; }
+};
+
+export { lalala as default };
